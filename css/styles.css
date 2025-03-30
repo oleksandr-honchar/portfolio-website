@@ -6,7 +6,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  color: #434455;
+  color: #000;
   background-color: #fff;
   font-weight: 400;
   font-size: 16px;
@@ -62,9 +62,29 @@ button {
 /* common */
 
 .container {
-  max-width: 320px;
+  max-width: 372px;
   padding: 0 16px;
   margin: 0 auto;
+}
+
+.header-hero-container {
+  padding: 20px 37px;
+  background-color: #000;
+}
+
+@media screen and (max-width: 371px) {
+  .container {
+    max-width: 372px;
+  }
+  .header-hero-container {
+    padding: 20px 16px;
+  }
+}
+
+@media screen and (min-width: 372px) {
+  .container {
+    max-width: 372px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -76,18 +96,16 @@ button {
 @media screen and (min-width: 1158px) {
   .container {
     max-width: 1158px;
-    padding: 0 15px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
   }
 }
 
 /* HEADER */
-
-.page-header {
-  border-bottom: 1px solid #e7e9fc;
-  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
-    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
-  background-color: #fff;
-}
 
 .header-container {
   display: flex;
@@ -95,28 +113,14 @@ button {
   justify-content: space-between;
 }
 
+.header-logo {
+  width: 40px;
+  height: 40px;
+}
+
 .nav-list,
 .contacts {
   display: none;
-}
-
-.logo {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.17;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #4d5ae5;
-}
-
-.header-logo {
-  padding: 16px 0;
-  display: block;
-}
-
-.header-logo .logo-part {
-  color: #2e2f42;
 }
 
 .burger-btn {
@@ -128,14 +132,10 @@ button {
 
 .burger-icon {
   display: block;
-  fill: #2f2f37;
+  stroke: #fff;
 }
 
 @media screen and (min-width: 768px) {
-  .burger-btn {
-    display: none;
-  }
-
   .header-nav {
     display: flex;
     align-items: center;
@@ -375,6 +375,14 @@ button {
 
 /* HERO */
 
+.hero-container {
+  background-color: #000;
+  align-items: center;
+  background-color: #000;
+  padding: 170px 17px 333px;
+  margin: 0 auto;
+}
+
 button {
   cursor: pointer;
   background-color: #4d5ae5;
@@ -386,29 +394,24 @@ button {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero {
-  background-color: rgba(46, 47, 66, 0.7);
+.hero-title {
+  max-width: 298px;
+  max-height: 160px;
+  font-family: "League Gothic", sans-serif;
+  font-size: 96px;
+  line-height: 0.83;
   text-align: center;
-  padding: 72px 0;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(46, 47, 66, 0.7),
-      rgba(46, 47, 66, 0.7)
-    ),
-    url("../images/people-office-mobile@1x.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  max-width: 320px;
-  margin: 0 auto;
+  color: #fff;
+  margin: 0 auto 5px;
 }
 
-.hero-title {
-  max-width: 216px;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
+.hero-text {
+  max-width: 292px;
+  max-height: 62px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.36em;
   text-align: center;
   color: #fff;
   margin: 0 auto;
@@ -428,26 +431,9 @@ button {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media screen and (min-resolution: 192dpi) {
-  .hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
-      ),
-      url("../images/people-office-mobile@2x.jpg");
-  }
-}
-
 @media screen and (min-width: 768px) {
   .hero {
     padding: 112px 0;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
-      ),
-      url("../images/people-office-tablet@1x.jpg");
     max-width: 768px;
     margin: 0 auto;
   }
@@ -466,30 +452,18 @@ button {
   }
 }
 
-@media screen and (min-width: 768px) and (min-resolution: 192dpi) {
-  .hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
-      ),
-      url("../images/people-office-tablet@2x.jpg");
-  }
-}
-
 @media screen and (min-width: 1158px) {
-  button:hover,
+  /* button:hover,
   button:focus {
-    background-color: #404bbf;
+    background-color: black;
+  } */
+
+  .burger-icon:hover,
+  .burger-icon:focus {
+    stroke: #888;
   }
   .hero {
     padding: 188px 0;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
-      ),
-      url("../images/people-office-desktop@1x.jpg");
     max-width: 1440px;
   }
 
@@ -499,66 +473,19 @@ button {
 }
 
 @media screen and (min-width: 1158px) and (min-resolution: 192dpi) {
-  .hero {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
-      ),
-      url("../images/people-office-desktop@2x.jpg");
-  }
 }
 
-/* FEATURES */
+/* ABOUT ME */
 
-.features-section {
+.about-me-container {
   background-color: #fff;
-  padding: 96px 0;
+  padding: 60px 37px 0;
 }
 
-.features-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 72px;
-}
-
-.svg-icon {
-  display: none;
-}
-
-.features-list-title {
+.about-me-title {
+  font-family: "League Spartan", sans-serif;
   font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.features-list-text {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-@media screen and (min-width: 768px) {
-  .features-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 24px;
-    row-gap: 72px;
-  }
-
-  .features-list-title {
-    text-align: left;
-  }
-
-  .features-list-item {
-    max-width: calc((100% - 24px) / 2);
-  }
+  font-size: 24px;
 }
 
 @media screen and (min-width: 1158px) {
@@ -601,117 +528,17 @@ button {
   }
 }
 
-/* TEAM */
+/* MY SKILLS */
 
-.our-team {
-  background: #f4f4fd;
-  padding: 96px 0;
+.my-skills-container {
+  background-color: #fff;
+  padding: 60px 37px 0;
 }
 
-.our-team-title {
+.my-skills-title {
+  font-family: "League Spartan", sans-serif;
   font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11;
-  letter-spacing: 0.02em;
-  text-align: center;
-  text-transform: capitalize;
-  color: #2e2f42;
-  margin-bottom: 72px;
-}
-
-.our-team-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 72px;
-}
-
-.our-team-list-item {
-  background-color: #ffffff;
-  width: 264px;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
-.name-position {
-  padding: 32px 0px;
-}
-
-.our-team-list-title {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: #2e2f42;
-  margin-bottom: 8px;
-}
-
-.our-team-list-text {
-  text-align: center;
-  letter-spacing: 0.02em;
-}
-
-.social-media.list {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  padding: 8px 16px 0 16px;
-}
-
-.social-media-item {
-  width: 40px;
-  height: 40px;
-}
-
-.social-media-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #4d5ae5;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.social-media-icon {
-  fill: #f4f4fd;
-}
-
-@media screen and (min-width: 768px) {
-  .our-team-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 24px;
-    row-gap: 64px;
-    justify-content: center;
-  }
-
-  .our-team-list-item {
-    max-width: calc((100% - 24px) / 2);
-  }
-}
-
-@media screen and (min-width: 1158px) {
-  .our-team {
-    padding: 120px 0;
-  }
-
-  .our-team-list {
-    gap: 24px;
-  }
-
-  .our-team-list-item {
-    background-color: #ffffff;
-    width: calc((100% - 24px * 3) / 4);
-  }
-}
-
-.social-media-link:hover,
-.social-media-link:focus {
-  background-color: #404bbf;
+  font-size: 24px;
 }
 
 /* PORTFOLIO */
