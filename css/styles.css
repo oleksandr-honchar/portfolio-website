@@ -91,17 +91,28 @@ button {
   .container {
     max-width: 768px;
   }
+  .header-hero-container {
+    padding: 34px 68px;
+  }
 }
 
 @media screen and (min-width: 1158px) {
   .container {
     max-width: 1158px;
   }
+
+  .header-hero-container {
+    padding: 46px 92px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
+  }
+
+  .header-hero-container {
+    padding: 60px 120px;
   }
 }
 
@@ -133,9 +144,21 @@ button {
 .burger-icon {
   display: block;
   stroke: #fff;
+  width: 32px;
+  height: 20px;
 }
 
 @media screen and (min-width: 768px) {
+  .header-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .burger-icon {
+    width: 48px;
+    height: 30px;
+  }
+
   .header-nav {
     display: flex;
     align-items: center;
@@ -146,11 +169,6 @@ button {
     align-items: center;
     gap: 40px;
     margin-right: 121px;
-  }
-
-  .header-logo {
-    padding: 24px 0;
-    margin-right: 120px;
   }
 
   .nav-link {
@@ -208,7 +226,13 @@ button {
 
 @media screen and (min-width: 1158px) {
   .header-logo {
-    margin-right: 76px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .burger-icon {
+    width: 64px;
+    height: 40px;
   }
 
   .contacts-list {
@@ -370,16 +394,13 @@ button {
 .item-mob-link {
 }
 
-.current {
-}
-
 /* HERO */
 
 .hero-container {
   background-color: #000;
   align-items: center;
   background-color: #000;
-  padding: 170px 17px 333px;
+  padding: 190px 17px 333px;
   margin: 0 auto;
 }
 
@@ -432,43 +453,52 @@ button {
 }
 
 @media screen and (min-width: 768px) {
+  .hero-container {
+    padding: 192px 17px 334px;
+  }
   .hero {
-    padding: 112px 0;
     max-width: 768px;
     margin: 0 auto;
   }
 
   .hero-title {
-    max-width: 496px;
-    font-size: 56px;
-    line-height: 1.07;
-    letter-spacing: 0.02em;
-    text-align: center;
-    color: #fff;
+    max-width: 416px;
+    max-height: 160px;
   }
 
-  .hero-btn {
-    margin: 36px auto 0;
+  .hero-text {
+    max-width: 408px;
+    max-height: 62px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: 0.36em;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 1158px) {
-  /* button:hover,
-  button:focus {
-    background-color: black;
-  } */
+  .hero-container {
+    padding: 194px 17px 334px;
+  }
 
   .burger-icon:hover,
   .burger-icon:focus {
     stroke: #888;
   }
   .hero {
-    padding: 188px 0;
-    max-width: 1440px;
+    max-width: 1158px;
   }
 
-  .hero-btn {
-    margin: 48px auto 0;
+  .hero-title {
+    max-width: 534px;
+    max-height: 108px;
+  }
+
+  .hero-text {
+    max-width: 524px;
   }
 }
 
@@ -486,45 +516,18 @@ button {
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
-@media screen and (min-width: 1158px) {
-  .features-section {
-    background-color: #fff;
-    padding: 120px 0;
-    flex-wrap: nowrap;
+@media (min-width: 768px) {
+  .about-me-title {
+    font-size: 28px;
   }
+}
 
-  .features-list-item {
-    max-width: calc((100% - 24px * 3) / 4);
-  }
-
-  .svg-icon {
-    padding: 24px 100px;
-    border: 1px solid #8e8f99;
-    border-radius: 4px;
-    width: 264px;
-    height: 112px;
-    background: #f4f4fd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-
-  .features-list-title {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-
-  .features-list-text {
-    font-weight: 400;
-    letter-spacing: 0.02em;
-  }
-
-  .features-icon {
-    fill: #2e2f42;
+@media (min-width: 1158px) {
+  .about-me-title {
+    font-size: 32px;
   }
 }
 
@@ -539,6 +542,43 @@ button {
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
   font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.my-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust spacing */
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.my-skills-item {
+  width: calc(50% - 10px);
+  display: flex;
+  gap: 3px;
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 768px) {
+  .my-skills-title {
+    font-size: 28px;
+  }
+
+  .my-skills-item {
+    width: calc(33.3% - 10px);
+  }
+}
+
+/* Desktop: 2 columns */
+@media (min-width: 1158px) {
+  .my-skills-title {
+    font-size: 32px;
+  }
+  .my-skills-item {
+    width: calc(20% - 10px);
+  }
 }
 
 /* PORTFOLIO */
