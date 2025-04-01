@@ -551,7 +551,7 @@ button {
   gap: 10px; /* Adjust spacing */
   padding: 0;
   list-style: none;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .my-skills-item {
@@ -571,21 +571,20 @@ button {
   }
 }
 
-/* Desktop: 2 columns */
+/* Desktop: 5 columns */
 @media (min-width: 1158px) {
   .my-skills-title {
     font-size: 32px;
   }
   .my-skills-item {
-    width: calc(20% - 10px);
+    width: calc(25% - 10px);
   }
 }
 
 /* PORTFOLIO */
-
-.portfolio {
-  padding-top: 96px;
-  padding-bottom: 96px;
+.portfolio-container {
+  background-color: #fff;
+  padding: 60px 37px 0;
 }
 
 .portfolio-title {
