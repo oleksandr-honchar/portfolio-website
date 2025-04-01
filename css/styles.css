@@ -67,16 +67,16 @@ button {
   margin: 0 auto;
 }
 
-.header-hero-container {
+.page-header {
   padding: 20px 37px;
   background-color: #000;
 }
 
 @media screen and (max-width: 371px) {
   .container {
-    max-width: 372px;
+    max-width: 371px;
   }
-  .header-hero-container {
+  .page-header {
     padding: 20px 16px;
   }
 }
@@ -91,7 +91,7 @@ button {
   .container {
     max-width: 768px;
   }
-  .header-hero-container {
+  .page-header {
     padding: 34px 68px;
   }
 }
@@ -101,7 +101,7 @@ button {
     max-width: 1158px;
   }
 
-  .header-hero-container {
+  .page-header {
     padding: 46px 92px;
   }
 }
@@ -111,14 +111,14 @@ button {
     max-width: 1440px;
   }
 
-  .header-hero-container {
+  .page-header {
     padding: 60px 120px;
   }
 }
 
 /* HEADER */
 
-.header-container {
+.header-navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -517,6 +517,10 @@ button {
   font-weight: 700;
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.about-me-text {
+  text-align: justify;
 }
 
 @media (min-width: 768px) {

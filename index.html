@@ -19,27 +19,23 @@
     />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
-    <div class="header-hero-container">
 
-<header class="page-header">
-      <div class="container header-container">
-      
-          <a class="logo header-logo" href="./index.html">
-            <img
-            src="./images/logo.ico"
-            alt="Logo"
-            class="logo-img"
-          />
-          </a>
-               
-        <button class="burger-btn" type="button" data-menu-open>
-          <svg class="burger-icon">
-            <use href="./images/icons.svg#icon-burger"></use>
-          </svg>
-        </button>
-       
-      </div>
+  <body>
+  <header class="container page-header">
+    <nav class="header-navigation">
+      <a class="logo header-logo" href="./index.html">
+        <img
+          src="./images/logo.ico"
+          alt="Logo"
+          class="logo-img"
+        />
+      </a>
+      <button class="burger-btn" type="button" data-menu-open>
+        <svg class="burger-icon">
+          <use href="./images/icons.svg#icon-burger"></use>
+        </svg>
+      </button>
+    </nav>
 
       <!-- MENU -->
 
@@ -131,8 +127,7 @@
       </div>
 
       <!-- ENDREGION MOBILE MENU -->
-    </header>
-    <main>
+
       <section class="hero">
         <div class="container hero-container">
           <h1 class="hero-title">Oleksandr Honchar</h1>
@@ -140,9 +135,15 @@
         </div>
       </section>
  
-    </div>
+    
     
      <!-- ENDREGION HEADER-HERO SECTION -->
+       </div>
+
+    </header>
+
+    <main>
+      
 
      <!-- REGION ABOUT ME SECTION -->
 
@@ -150,8 +151,10 @@
         <div class="container about-me-container">
           <h2 id="about-me" class="about-me-title">About me</h2>
           <p class="about-me-text">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            I turn complex data into clear, actionable insights that help businesses make smarter decisions. With a PhD in Economics and experience in finance, education, and process optimization, I specialize in analyzing trends, optimizing processes, and uncovering opportunities that drive efficiency and profitability.
           </p>
+          <br>
+          <p class="about-me-text">I believe data should do more than just exist — it should tell a story, highlight opportunities, and support strategic decisions. Whether it’s financial modeling, business analytics, or process improvement, I focus on making data practical, accessible, and impactful for businesses of all sizes. My goal is to bridge the gap between raw data and meaningful business value.</p>
         </div>
 
          <!-- ENDREGION ABOUT ME SECTION -->
@@ -325,27 +328,25 @@
                 <picture>
                   <source
                     srcset="
-                      ./images/banking-app-desktop@1x.jpg 1x,
-                      ./images/banking-app-desktop@2x.jpg 2x
+                      ./images/apartment_buildings_gray.jpg 1x,
+                      ./images/apartment_buildings_gray.jpg 2x
                     "
                     media="(min-width: 1158px)"
                   />
                   <source
                     srcset="
-                      ./images/banking-app-tablet@1x.jpg 1x,
-                      ./images/banking-app-tablet@2x.jpg 2x
-                    "
+                      ./images/apartment_buildings_gray.jpg 1x,
+                      ./images/apartment_buildings_gray.jpg 2x
                     media="(min-width: 768px) and (max-width: 1157px)"
                   />
                   <source
                     srcset="
-                      ./images/banking-app-mobile@1x.jpg 1x,
-                      ./images/banking-app-mobile@2x.jpg 2x
-                    "
+                      ./images/apartment_buildings_gray.jpg 1x,
+                      ./images/apartment_buildings_gray.jpg 2x
                     media="(max-width: 767px)"
                   />
                   <img
-                    src="./images/banking-app-mobile@1x.jpg"
+                    src="./images/apartment_buildings_gray.jpg"
                     alt="banking app"
                   />
                 </picture>
