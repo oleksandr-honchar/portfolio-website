@@ -486,7 +486,7 @@ button {
 
   .burger-icon:hover,
   .burger-icon:focus {
-    stroke: #888;
+    stroke: #b0b0b0;
   }
   .hero {
     max-width: 1158px;
@@ -613,11 +613,12 @@ button {
 }
 
 .portfolio-list-title {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  margin-bottom: 8px;
 }
 
 .portfolio-list-text {
@@ -636,10 +637,6 @@ button {
   border-bottom: 1px solid #e7e9fc;
   border-left: 1px solid #e7e9fc;
   border-right: 1px solid #e7e9fc;
-}
-
-.portfolio-list-title {
-  margin-bottom: 8px;
 }
 
 .portfolio-list-item {
@@ -717,6 +714,9 @@ button {
   height: 100%;
   transform: translateY(100%);
   padding: 40px 32px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
   letter-spacing: 0.02em;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
