@@ -34,6 +34,7 @@ p {
 
 a {
   text-decoration: none;
+  font-style: normal;
 }
 
 img {
@@ -830,7 +831,16 @@ button {
 .footer-nav-list {
   display: flex;
   justify-content: space-between;
-  gap: 35px;
+  gap: 33px;
+}
+
+.footer-nav-link {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer-contacts-link {
+  color: #fff;
 }
 
 .footer-logo {
