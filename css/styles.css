@@ -405,6 +405,7 @@ button {
   align-items: center;
   padding: 190px 17px 334px;
   margin: 0 auto;
+  height: 100vh;
 }
 
 button {
