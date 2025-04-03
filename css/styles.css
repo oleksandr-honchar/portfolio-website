@@ -405,7 +405,11 @@ button {
   align-items: center;
   padding: 190px 17px;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.hero {
+  display: flex;
 }
 
 button {
