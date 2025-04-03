@@ -824,8 +824,16 @@ button {
   padding: 83px 37px 77px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 21px;
+  flex-direction: column;
+  row-gap: 60px;
+  /* flex-wrap: wrap;
+  gap: 21px; */
+}
+
+.footer.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 33px;
 }
 
 .footer-nav-list {
@@ -846,6 +854,21 @@ button {
 .footer-logo {
   width: 58px;
   height: 58px;
+}
+
+@media screen and (max-width: 371px) {
+  .footer-container {
+    padding: 60px 16px;
+  }
+
+  .footer-nav-list {
+    gap: 28px;
+  }
+
+  .footer-logo {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .footer-text {
