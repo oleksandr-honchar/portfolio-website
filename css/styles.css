@@ -86,12 +86,6 @@ button {
   }
 }
 
-@media screen and (min-width: 372px) {
-  .container {
-    max-width: 372px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -412,6 +406,47 @@ button {
 }
 
 @media screen and (min-width: 768px) {
+  .menu-container {
+    padding: 160px 110px 230px;
+  }
+
+  .menu-close-btn {
+    top: 50px;
+    right: 70px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .menu-container {
+    padding: 190px 220px;
+    flex-direction: row;
+  }
+  .menu-close-btn {
+    top: 70px;
+    right: 100px;
+  }
+
+  .nav-item-link {
+    font-size: 64px;
+  }
+
+  .nav-list {
+    margin-right: 252px;
+  }
+
+  .contacts-media {
+    margin-top: auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .menu-container {
+    padding: 254px 268px;
+  }
+  .menu-close-btn {
+    top: 80px;
+    right: 140px;
+  }
 }
 
 /* HERO */
@@ -421,7 +456,7 @@ button {
   align-items: center;
   padding: 190px 17px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .hero {
@@ -505,7 +540,7 @@ button {
 
 @media screen and (min-width: 1158px) {
   .hero-container {
-    padding: 194px 17px;
+    padding: 194px 17px 334px;
   }
 
   .burger-icon:hover,
