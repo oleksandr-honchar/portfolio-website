@@ -821,7 +821,7 @@ button {
 
 .footer-container {
   background-color: #000;
-  padding: 83px 37px 77px;
+  padding: 80px 37px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -847,6 +847,13 @@ button {
   font-weight: 700;
 }
 
+.footer-contacts-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .footer-contacts-link {
   color: #fff;
 }
@@ -862,12 +869,7 @@ button {
   }
 
   .footer-nav-list {
-    gap: 28px;
-  }
-
-  .footer-logo {
-    width: 52px;
-    height: 52px;
+    gap: 26px;
   }
 }
 
@@ -973,43 +975,56 @@ button {
 
 @media screen and (min-width: 768px) {
   .footer-container {
-    padding: 100px 0;
+    padding: 80px 60px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .footer-content {
-    width: 584px;
-    row-gap: 72px;
-    column-gap: 24px;
-    align-items: baseline;
+  .footer-nav-list {
+    gap: 30px;
   }
 
-  .logo-text {
-    max-width: 264px;
+  .footer-contacts {
+    align-self: flex-start;
   }
 
   .footer-logo {
-    display: inline-block;
+    /* display: inline-block; */
+    width: 87px;
+    height: 87px;
   }
+}
 
-  .footer-social-media {
-    width: 208px;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
+.footer-social-media {
+  width: 208px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
-  .subscribe-title {
-    text-align: left;
-  }
+.subscribe-title {
+  text-align: left;
+}
 
-  .form-input {
-    width: 264px;
-  }
+.form-input {
+  width: 264px;
 }
 
 @media screen and (min-width: 1158px) {
   .footer-container {
-    padding: 0 15px;
-    width: 100%;
+    padding: 120px 90px;
+  }
+
+  .footer-nav-list {
+    margin-right: 130px;
+  }
+
+  .footer-contacts {
+    margin-right: 200px;
+  }
+
+  .footer-logo {
+    width: 116px;
+    height: 116px;
   }
 
   .social-list-link:hover,
@@ -1026,6 +1041,20 @@ button {
 
   .footer-subscribe {
     margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .footer-container {
+    padding: 160px 120px;
+  }
+
+  .footer-nav-list {
+    margin-right: 217px;
+  }
+
+  .footer-contacts {
+    margin-right: 340px;
   }
 }
 
