@@ -558,52 +558,74 @@ button {
 
 /* ABOUT ME */
 
-.about-me-container {
+.about-me-container,
+.my-background-container,
+.my-hobbies-container {
   background-color: #fff;
   padding: 60px 37px 0;
 }
 
-.about-me-title {
+.about-me-title,
+.my-background-title,
+.my-hobbies-title {
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.about-me-text {
+.about-me-text,
+.my-background-text,
+.my-hobbies-text {
   text-align: justify;
 }
 
+.about-contact-link {
+  margin: 60px auto;
+}
+
 @media screen and (max-width: 371px) {
-  .about-me-container {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
     padding: 60px 16px 0;
   }
 }
 
 @media (min-width: 768px) {
-  .about-me-title {
-    font-size: 28px;
-  }
-
-  .about-me-container {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
     background-color: #fff;
     padding: 60px 120px 0;
+  }
+
+  .about-me-title,
+  .my-background-title,
+  .my-hobbies-title {
+    font-size: 28px;
   }
 }
 
 @media (min-width: 1158px) {
-  .about-me-title {
-    font-size: 32px;
-  }
-
-  .about-me-container {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
     background-color: #fff;
     padding: 60px 260px 0;
+  }
+
+  .about-me-title,
+  .my-background-title,
+  .my-hobbies-title {
+    font-size: 32px;
   }
 }
 
 @media (min-width: 1440px) {
-  .about-me-container {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
     background-color: #fff;
     padding: 60px 400px 0;
   }
@@ -888,6 +910,30 @@ button {
     display: none;
   }
 }
+
+/* MY BACKGROUND */
+
+.my-background-container {
+}
+.my-background-title {
+}
+.my-background-text {
+}
+
+.my-hobbies-section {
+}
+.container {
+}
+.my-hobbies-container {
+}
+.my-hobbies-title {
+}
+.my-hobbies-text {
+}
+.my-background-text {
+}
+
+/* MY HOBBIES AND INTERESTS */
 
 /* FOOTER */
 
