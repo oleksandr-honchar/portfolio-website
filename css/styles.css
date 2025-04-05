@@ -68,7 +68,7 @@ button {
 }
 
 .page-header {
-  max-height: 810px;
+  height: 810px;
   margin: 0 auto;
   padding: 20px 37px 0;
   background-color: #000;
