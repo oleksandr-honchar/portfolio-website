@@ -89,9 +89,9 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  /* .container {
     max-width: 768px;
-  }
+  } */
   .page-header {
     padding: 34px 68px 0;
   }
