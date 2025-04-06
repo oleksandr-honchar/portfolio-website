@@ -1213,3 +1213,28 @@ button {
     margin-right: 340px;
   }
 }
+
+/* COMING SOON */
+
+.coming-soon-container {
+  height: 810px;
+  margin: 0 auto;
+  padding: 20px 37px 0;
+  background-color: #000;
+  background-image: url("../images/coming-soon.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain; /* ⬇️ Scales image to fit */
+  background-position: center center;
+}
+
+@media screen and (max-width: 371px) {
+  .coming-soon-container {
+    padding: 20px 16px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .coming-soon-container {
+    background-image: url("../images/coming-soon.png");
+  }
+}
