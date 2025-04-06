@@ -13,7 +13,7 @@ body {
   line-height: 1.5;
 }
 
-html.menu-open {
+html.data-menu-open {
   overflow: hidden; /* Disable scrolling */
 }
 
