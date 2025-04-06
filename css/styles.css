@@ -543,7 +543,7 @@ button {
 }
 
 .hero-title {
-  max-width: 298px;
+  min-width: 298px;
   max-height: 160px;
   font-family: "League Gothic", sans-serif;
   font-size: 72px;
@@ -590,7 +590,7 @@ button {
   }
 
   .hero-title {
-    max-width: 416px;
+    min-width: 416px;
     max-height: 160px;
     font-size: 96px;
   }
@@ -622,7 +622,7 @@ button {
   }
 
   .hero-title {
-    max-width: 534px;
+    min-width: 534px;
     max-height: 108px;
   }
 
