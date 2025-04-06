@@ -13,6 +13,10 @@ body {
   line-height: 1.5;
 }
 
+html.menu-open {
+  overflow: hidden; /* Disable scrolling */
+}
+
 /* reset */
 
 ul,
