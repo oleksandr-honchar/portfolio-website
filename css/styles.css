@@ -439,7 +439,8 @@ button {
 
   .menu-container {
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
     padding: 160px 110px 230px;
   }
 
