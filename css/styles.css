@@ -955,6 +955,7 @@ button {
   font-size: 20px;
   color: #fff;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .overlay-link {
@@ -986,6 +987,13 @@ button {
 @media (max-width: 1157px) {
   .overlay {
     display: none;
+  }
+}
+
+@media (min-width: 1158px) {
+  .project-link {
+    pointer-events: none; /* disables click */
+    cursor: default; /* removes hand cursor */
   }
 }
 
