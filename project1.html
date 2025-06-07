@@ -176,8 +176,8 @@
 
       <section class="hero">
         <div class="container hero-container">
-          <h1 class="hero-title">MY PROJECTS</h1>
-          <p class="hero-text">BUILT FOR INSIGHT</p>
+          <h1 class="hero-title">REVENUE METRICS</h1>
+          <p class="hero-text">SQL & TABLEAU</p>
         </div>
       </section>
 
@@ -186,21 +186,22 @@
 
     <main>
       <div class="container">
-        <h1>📊 Sales Performance Analysis</h1>
+        <h1>📊 Revenue Metrics Analysis</h1>
 
         <div class="section">
           <h2>🧠 Project Overview</h2>
           <p>
-            <strong>Business Question:</strong> Identify underperforming sales
-            regions to inform marketing strategy.
+            <strong>Business Question:</strong> How is revenue evolving over
+            time, and what are the key factors driving these changes?
           </p>
           <p>
-            <strong>Dataset:</strong> Superstore Sales (Tableau Sample Dataset,
-            ~10,000 rows)
+            <strong>Dataset:</strong> User Activity and Revenue Generation
+            (PostgreSQL Database, 3,026 rows)
           </p>
           <p>
-            <strong>Outcome:</strong> Found that the South region lags behind
-            others in both revenue and profit margins.
+            <strong>Outcome:</strong> Interactive dashboard that allows product
+            managers to analyze and track the financial performance of a project
+            based on user subscriptions and revenue.
           </p>
         </div>
 
@@ -210,25 +211,225 @@
             <summary>Click to View SQL Query</summary>
             <div class="sql-block">
               <pre>
-        WITH regional_sales AS (
-          SELECT region, SUM(sales) AS total_sales
-          FROM orders
-          GROUP BY region
-        )
-        SELECT * FROM regional_sales
-        ORDER BY total_sales DESC;
-        </pre
-              >
+                WITH base AS (
+                  SELECT 
+                    user_id,
+                    payment_date,
+                    revenue_amount_usd,
+                    DATE_TRUNC('month', payment_date::DATE)::DATE AS paid_month,
+                    game_name,
+                    language,
+                    age,
+                    has_older_device_model,
+                    LAG(DATE_TRUNC('month', payment_date::DATE)::DATE) OVER (PARTITION BY user_id ORDER BY payment_date) AS previous_paid_month,
+                    LEAD(DATE_TRUNC('month', payment_date::DATE)::DATE) OVER (PARTITION BY user_id ORDER BY payment_date) AS next_paid_month
+                  FROM newtable_oh
+                ),
+
+                dataset_end AS (
+                  SELECT MAX(DATE_TRUNC('month', payment_date::DATE))::DATE AS max_month
+                  FROM newtable_oh
+                ),
+
+                monthly_revenue AS (
+                  SELECT 
+                    user_id,
+                    DATE_TRUNC('month', payment_date::DATE)::DATE AS paid_month,
+                    SUM(revenue_amount_usd) AS total_month_revenue
+                  FROM newtable_oh
+                  GROUP BY user_id, paid_month
+                )
+
+                SELECT 
+                  b.user_id,
+                  b.payment_date,
+                  b.revenue_amount_usd,
+                  b.paid_month,
+                  b.previous_paid_month,
+                  b.next_paid_month,
+                  CASE 
+                    WHEN b.next_paid_month IS NULL AND b.paid_month + INTERVAL '1 month' <= de.max_month
+                    THEN (b.paid_month + INTERVAL '1 month')::DATE
+                    WHEN b.next_paid_month IS NOT NULL AND b.next_paid_month != b.paid_month + INTERVAL '1 month'
+                    THEN (b.paid_month + INTERVAL '1 month')::DATE
+                  END AS churn_month,
+                  mr.total_month_revenue AS current_month_revenue,
+
+                  -- Reactivated user flag and revenue
+                  CASE 
+                    WHEN b.previous_paid_month IS NOT NULL AND b.previous_paid_month != b.paid_month - INTERVAL '1 month' THEN 1 
+                    ELSE 0
+                  END AS reactivated_users,
+                  CASE 
+                    WHEN b.previous_paid_month IS NOT NULL AND b.previous_paid_month != b.paid_month - INTERVAL '1 month' 
+                    THEN b.revenue_amount_usd 
+                    ELSE 0 
+                  END AS reactivated_mrr,
+
+                  -- Expansion and Contraction revenue
+                  CASE 
+                    WHEN b.previous_paid_month = b.paid_month - INTERVAL '1 month'
+                    AND mr.total_month_revenue > 
+                            (SELECT total_month_revenue
+                            FROM monthly_revenue
+                            WHERE user_id = b.user_id 
+                            AND paid_month = b.previous_paid_month)
+                    THEN mr.total_month_revenue - 
+                        (SELECT total_month_revenue
+                          FROM monthly_revenue
+                          WHERE user_id = b.user_id 
+                          AND paid_month = b.previous_paid_month)
+                    ELSE 0
+                  END AS expansion_revenue,
+
+                  CASE 
+                    WHEN b.previous_paid_month = b.paid_month - INTERVAL '1 month'
+                    AND mr.total_month_revenue < 
+                            (SELECT total_month_revenue
+                            FROM monthly_revenue
+                            WHERE user_id = b.user_id 
+                            AND paid_month = b.previous_paid_month)
+                    THEN (SELECT total_month_revenue
+                          FROM monthly_revenue
+                          WHERE user_id = b.user_id 
+                          AND paid_month = b.previous_paid_month) - mr.total_month_revenue
+                    ELSE 0
+                  END AS contraction_revenue,
+
+                  b.game_name,
+                  b.language,
+                  b.age,
+                  b.has_older_device_model
+
+                FROM base b
+                LEFT JOIN monthly_revenue mr 
+                  ON b.user_id = mr.user_id AND b.paid_month = mr.paid_month
+                JOIN dataset_end de ON TRUE
+
+                ORDER BY 2,1;
+              </pre>
             </div>
           </details>
 
           <h3>🧪 Query Output Preview</h3>
-          <img
-            src="sql_output_preview.png"
-            alt="SQL Output Preview"
-            class="preview"
-          />
+          <div class="table-container">
+            <table class="sql-output">
+                <thead>
+                    <tr>
+                        <th>user_id</th>
+                        <th>payment_date</th>
+                        <th>revenue_amount_usd</th>
+                        <th>paid_month</th>
+                        <th>previous_paid_month</th>
+                        <th>next_paid_month</th>
+                        <th>churn_month</th>
+                        <th>current_month_revenue</th>
+                        <th>reactivated_users</th>
+                        <th>reactivated_mrr</th>
+                        <th>expansion_revenue</th>
+                        <th>contraction_revenue</th>
+                        <th>game_name</th>
+                        <th>language</th>
+                        <th>age</th>
+                        <th>has_older_device_model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td>HxWcXHURvvtOJkrXAcDxQg==</td>
+                        <td>2022-03-01</td>
+                        <td>34.11</td>
+                        <td>2022-03-01</td>
+                        <td>&nbsp;</td>
+                        <td>2022-03-01</td>
+                        <td>2022-04-01</td>
+                        <td>66.18</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>game 3</td>
+                        <td>uk</td>
+                        <td>15</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>l3sFUsG2qpcnrEzwRnjvtQ==</td>
+                        <td>2022-03-01</td>
+                        <td>15.06</td>
+                        <td>2022-03-01</td>
+                        <td>&nbsp;</td>
+                        <td>2022-03-01</td>
+                        <td>2022-04-01</td>
+                        <td>38.100002</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>game 3</td>
+                        <td>ru</td>
+                        <td>15</td>
+                        <td>false</td>
+                    </tr>
+                    <tr class="odd">
+                        <td>o55dseByUOl9s5IQCz1kuQ==</td>
+                        <td>2022-03-02</td>
+                        <td>23.16</td>
+                        <td>2022-03-01</td>
+                        <td>&nbsp;</td>
+                        <td>2022-04-01</td>
+                        <td>&nbsp;</td>
+                        <td>23.16</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>game 3</td>
+                        <td>uk</td>
+                        <td>22</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>7EPlnA7OQ9MhMx+od6FA9g==</td>
+                        <td>2022-03-04</td>
+                        <td>19.29</td>
+                        <td>2022-03-01</td>
+                        <td>&nbsp;</td>
+                        <td>2022-03-01</td>
+                        <td>2022-04-01</td>
+                        <td>158.67</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>game 3</td>
+                        <td>ru</td>
+                        <td>23</td>
+                        <td>false</td>
+                    </tr>
+                    <tr class="odd">
+                        <td>Bcs3CbYx2EpbL9otxlEUmg==</td>
+                        <td>2022-03-05</td>
+                        <td>16.38</td>
+                        <td>2022-03-01</td>
+                        <td>&nbsp;</td>
+                        <td>2022-03-01</td>
+                        <td>2022-04-01</td>
+                        <td>89.22</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>game 3</td>
+                        <td>uk</td>
+                        <td>18</td>
+                        <td>true</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        
+        
 
         <div class="section">
           <h2>📈 Tableau Dashboard</h2>
