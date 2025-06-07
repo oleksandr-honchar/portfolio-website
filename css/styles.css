@@ -1246,3 +1246,21 @@ button {
     background-image: url("../images/coming-soon.png");
   }
 }
+
+/* Tableau Dashboard */
+
+.tableau-embed-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.tableau-embed-scale {
+  transform: scale(0.95);
+  transform-origin: top center;
+  width: 1200px;
+  height: 850px;
+}
