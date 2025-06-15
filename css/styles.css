@@ -276,6 +276,7 @@ button {
   font-size: 48px;
   color: #000;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: auto;
 }
 
 .menu-contacts {
@@ -1246,6 +1247,81 @@ button {
     background-image: url("../images/coming-soon.png");
   }
 }
+
+/* REVENUE METRICS */
+
+.revenue-metrics-container {
+  background-color: #fff;
+  padding: 60px 37px 0;
+}
+
+/* Below text shall be adjusted */
+
+/* .about-me-title,
+.my-background-title,
+.my-hobbies-title {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.about-me-text,
+.my-background-text,
+.my-hobbies-text {
+  text-align: justify;
+}
+
+.about-contact-link {
+  margin: 60px auto;
+}
+
+@media screen and (max-width: 371px) {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
+    padding: 60px 16px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
+    background-color: #fff;
+    padding: 60px 120px 0;
+  }
+
+  .about-me-title,
+  .my-background-title,
+  .my-hobbies-title {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1158px) {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
+    background-color: #fff;
+    padding: 60px 260px 0;
+  }
+
+  .about-me-title,
+  .my-background-title,
+  .my-hobbies-title {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .about-me-container,
+  .my-background-container,
+  .my-hobbies-container {
+    background-color: #fff;
+    padding: 60px 400px 0;
+  }
+} */
 
 /* Style for the table container to make it scrollable horizontally */
 .table-container {
