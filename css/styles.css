@@ -1255,78 +1255,61 @@ button {
   padding: 60px 37px 0;
 }
 
-/* Below text shall be adjusted */
+.subsection {
+  margin-bottom: 40px;
+}
 
-/* .about-me-title,
-.my-background-title,
-.my-hobbies-title {
+.revenue-metrics-title {
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.about-me-text,
-.my-background-text,
-.my-hobbies-text {
+.revenue-metrics-subtitle {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.revenue-metrics-text {
   text-align: justify;
 }
 
-.about-contact-link {
-  margin: 60px auto;
+.revenue-metrics-list {
+  list-style-type: disc;
+  padding-left: 30px;
+  margin-left: 0;
 }
 
-@media screen and (max-width: 371px) {
-  .about-me-container,
-  .my-background-container,
-  .my-hobbies-container {
-    padding: 60px 16px 0;
-  }
+.sql-block {
+  background-color: #f4f4fd;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  .about-me-container,
-  .my-background-container,
-  .my-hobbies-container {
-    background-color: #fff;
-    padding: 60px 120px 0;
-  }
-
-  .about-me-title,
-  .my-background-title,
-  .my-hobbies-title {
-    font-size: 28px;
-  }
+summary {
+  margin-bottom: 20px;
+  margin-top: 12px;
 }
 
-@media (min-width: 1158px) {
-  .about-me-container,
-  .my-background-container,
-  .my-hobbies-container {
-    background-color: #fff;
-    padding: 60px 260px 0;
-  }
-
-  .about-me-title,
-  .my-background-title,
-  .my-hobbies-title {
-    font-size: 32px;
-  }
+.subsection .dashboard {
+  margin: 0 auto;
 }
-
-@media (min-width: 1440px) {
-  .about-me-container,
-  .my-background-container,
-  .my-hobbies-container {
-    background-color: #fff;
-    padding: 60px 400px 0;
-  }
-} */
 
 /* Style for the table container to make it scrollable horizontally */
 .table-container {
   overflow-x: auto;
+  overflow-y: auto;
   max-width: 100%;
+  max-height: 300px;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 /* Style for the table */
@@ -1338,14 +1321,14 @@ button {
 /* Style for table headers */
 .sql-output th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 3px;
   background-color: #f2f2f2;
 }
 
 /* Style for table cells */
 .sql-output td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 3px;
 }
 
 /* Alternate row background color */
@@ -1356,4 +1339,39 @@ button {
 /* Style for the table when hovering over rows */
 .sql-output tr:hover {
   background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 371px) {
+  .revenue-metrics-container {
+    padding: 60px 16px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .revenue-metrics-container {
+    background-color: #fff;
+    padding: 60px 120px 0;
+  }
+
+  .revenue-metrics-title {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1158px) {
+  .revenue-metrics-container {
+    background-color: #fff;
+    padding: 60px 160px 0;
+  }
+
+  .revenue-metrics-title {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .revenue-metrics-container {
+    background-color: #fff;
+    padding: 60px 160px 0;
+  }
 }
